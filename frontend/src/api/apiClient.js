@@ -37,6 +37,9 @@ axiosInstance.interceptors.response.use(
         // Collect field validation errors
         message = Object.values(responseData.errors).join(', ');
       }
+    } else if (!error.response && error.request) {
+      // No response at all: backend is down, unreachable, or blocked by CORS
+      message = 'Cannot reach the TOOLBARTER server. It may be offline or starting up — please try again in a minute.';
     } else if (error.message) {
       message = error.message;
     }
