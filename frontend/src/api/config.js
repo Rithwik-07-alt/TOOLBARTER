@@ -1,7 +1,8 @@
 /**
  * Centralized API endpoints for TOOLBARTER.
  */
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
+const rawBase = (import.meta.env.VITE_API_BASE_URL || '/api').trim().replace(/\/+$/, '');
+export const API_BASE_URL = rawBase.endsWith('/api') ? rawBase : `${rawBase}/api`;
 
 export const ENDPOINTS = {
   HEALTH: `${API_BASE_URL}/health`,

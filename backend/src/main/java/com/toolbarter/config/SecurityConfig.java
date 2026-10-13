@@ -73,7 +73,10 @@ public class SecurityConfig {
             configuration.setAllowedOriginPatterns(List.of(
                 "http://localhost:*",
                 "http://127.0.0.1:*",
-                "https://jovial-bunny-59033e.netlify.app"
+                "https://*.netlify.app",
+                "https://netlify.app",
+                "https://*.onrender.com",
+                "https://*.vercel.app"
             ));
 
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
